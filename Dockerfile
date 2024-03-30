@@ -4,6 +4,7 @@ FROM python:3.10
 RUN apt-get update && apt-get install -y \
     wget \
     tar \
+    openjdk-11-jdk \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
@@ -18,10 +19,8 @@ RUN tar -xzf fop-2.9-bin.tar.gz -C /usr/bin
 RUN rm fop-2.9-bin.tar.gz
 RUN chmod 755 /usr/bin/fop-2.9/fop/fop
 
-# Install Java 8
-RUN wget -nv https://storage.googleapis.com/server8koalixnet_backup/jdk-8u181-linux-x64.tar.gz
-RUN tar -xzf jdk-8u181-linux-x64.tar.gz -C /usr/bin
-RUN rm jdk-8u181-linux-x64.tar.gz
+# Set JAVA_HOME environment variable
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 
 # Port to expose
 EXPOSE 8000
