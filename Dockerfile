@@ -2,6 +2,12 @@ FROM python:3.10
 
 WORKDIR /usr/src/app
 
+# Update package list and install dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    tar \
+    && rm -rf /var/lib/apt/lists/* \
+
 # Install dependencies
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
