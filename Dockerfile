@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install dependencies
 COPY requirements.txt /usr/src/app/
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 
 # Install FOP 2.9
 RUN wget https://storage.googleapis.com/server8koalixnet_backup/fop-2.9-bin.tar.gz
