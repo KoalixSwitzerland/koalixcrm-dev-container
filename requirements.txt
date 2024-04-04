@@ -19,3 +19,4 @@ codacy-coverage>=1.3.11
 selenium>=4.16.0
 factory_boy>=3.3.0
 pylint>=3.1.0
+python3-sphinx>=7.2.6
