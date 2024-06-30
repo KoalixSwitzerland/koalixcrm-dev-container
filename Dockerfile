@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install -y \
     tar \
     firefox-esr \
     openjdk-17-jdk \
-    rabbitmq-server \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
